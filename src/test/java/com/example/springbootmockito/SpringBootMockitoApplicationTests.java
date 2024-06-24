@@ -18,7 +18,7 @@ import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-class SpringBootMockitoApplicationTests {
+public class SpringBootMockitoApplicationTests {
 
     @Autowired
     private UserService service;
@@ -40,7 +40,6 @@ class SpringBootMockitoApplicationTests {
     Stubbing is the process of setting up the mock to return specific values when certain methods are called.
     * */
 
-
     @org.junit.Test
     public void getUserbyAddressTest() {
         String address = "Bangalore";
@@ -53,7 +52,7 @@ class SpringBootMockitoApplicationTests {
     public void saveUserTest() {
         User user = new User(999, "Pranya", 33, "Pune");
         when(repository.save(user)).thenReturn(user);
-        assertEquals(user, service.addUser(user));
+        assertEquals(user, service.addUser(user));  // Checking if the actual output matches the expected output.
     }
 
     @Test
@@ -61,10 +60,16 @@ class SpringBootMockitoApplicationTests {
         User user = new User(999, "Pranya", 33, "Pune");
         service.deleteUser(user);
         verify(repository, times(1)).delete(user);
+        //Ensuring specific methods are called during the test.
     }
 
     /*
     Verification is used to check if certain methods are called on the mock objects.
+
+    Mockito's verify method is used to check if the repository's delete method was called exactly
+    once with the user object.
+    This ensures that the deleteUser method in the service triggers the deletion in the repository.
+
     * */
 
 }
