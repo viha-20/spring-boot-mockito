@@ -1,0 +1,9 @@
+
+
+First, you create mocks using the @Mock annotation or the Mockito.mock() method.
+
+Next you can stub methods to define the behavior of mock objects.
+
+Finally, you verify interactions to ensure that certain methods were called on the mock objects.
+
+These steps form the foundation of writing test with mockito.
