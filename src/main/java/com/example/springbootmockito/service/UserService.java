@@ -26,16 +26,17 @@ public class UserService {
 
 	public List<User> getUsers() {
 		List<User> users = repository.findAll();
-		log.info("Getting data from DB : " + users);
+        log.info("Getting data from DB : {}", users);
 		return users;
 	}
 
 	public List<User> getUserbyAddress(String address) {
-		log.info("Address: " + address);
+        log.info("Address: {}", address);
 		return repository.findByAddress(address);
 	}
 
 	public void deleteUser(User user) {
+        log.info("Deleting user: {}", user);
 		repository.delete(user);
 	}
 }

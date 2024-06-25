@@ -69,7 +69,6 @@ public class SpringBootMockitoApplicationTests {
     Mockito's verify method is used to check if the repository's delete method was called exactly
     once with the user object.
     This ensures that the deleteUser method in the service triggers the deletion in the repository.
-
     * */
 
 }
